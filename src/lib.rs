@@ -1,3 +1,5 @@
+#![cfg(windows)]
+
 extern crate dxgi;
 extern crate winapi;
 extern crate wio;
