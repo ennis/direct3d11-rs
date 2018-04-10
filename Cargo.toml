@@ -1,0 +1,18 @@
+[package]
+name = "direct3d11"
+version = "0.1.0"
+authors = ["Connie Hilarides <conni_h@outlook.com>"]
+description = """
+Safe Direct3D 11 bindings. Currently just a minimal implementation mostly for
+use with direct2d, but I plan to flesh out the API eventually. If you're
+excited by this project and would like to contribute, pull requests are always
+open.
+"""
+
+[target.'cfg(windows)'.dependencies]
+wio = "0.2"
+dxgi = "0.1"
+
+[target.'cfg(windows)'.dependencies.winapi]
+version = "0.3"
+features = ["d3d11", "winerror"]
