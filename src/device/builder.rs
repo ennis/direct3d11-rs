@@ -72,7 +72,7 @@ impl<'a> DeviceBuilder<'a> {
     pub fn with_flags(mut self, flags: CreateDeviceFlags) -> Self {
         assert!(
             !flags.is_set(CreateDeviceFlags::SINGLETHREADED),
-            "SINGLETHREADED is not supported right now. If this usecase is important, please open an issue.",
+            "SINGLETHREADED is not supported right now. If this usecase is important, please open an issue."
         );
         assert!(flags.validate(), "Invalid flags passed");
         self.flags = flags;
