@@ -14,7 +14,7 @@ open.
 
 [target.'cfg(windows)'.dependencies]
 wio = "0.2"
-dxgi = "0.1.5"
+dxgi = "0.1.7"
 
 [target.'cfg(windows)'.dependencies.winapi]
 version = "0.3"
