@@ -12,6 +12,7 @@ use wio::com::ComPtr;
 pub mod builder;
 pub mod desc;
 
+#[derive(Clone)]
 pub struct Texture2D {
     ptr: ComPtr<ID3D11Texture2D>,
 }

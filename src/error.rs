@@ -5,6 +5,7 @@ use std::fmt;
 use dxgi::error::Error as DxgiError;
 use winapi::shared::winerror::{HRESULT, SUCCEEDED};
 
+#[derive(Copy, Clone, PartialEq, Eq)]
 pub enum Error {
     Dxgi(DxgiError),
     D3D11(HRESULT),
@@ -40,6 +41,15 @@ impl fmt::Debug for Error {
         match *self {
             Error::Dxgi(err) => fmt.debug_tuple("Dxgi").field(&err).finish(),
             Error::D3D11(err) => fmt.debug_tuple("D3D11").field(&DxgiError(err)).finish(),
+        }
+    }
+}
+
+impl fmt::Display for Error {
+    fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
+        match *self {
+            Error::Dxgi(err) => write!(fmt, "{}", err),
+            Error::D3D11(err) => write!(fmt, "{}", DxgiError(err)),
         }
     }
 }
