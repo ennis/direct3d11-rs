@@ -5,6 +5,7 @@ use wio::com::ComPtr;
 
 pub mod builder;
 
+#[derive(Clone)]
 pub struct Device {
     ptr: ComPtr<ID3D11Device>,
 }
