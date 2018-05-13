@@ -11,7 +11,7 @@ pub trait ComWrapper {
 }
 
 macro_rules! com_wrapper {
-    ($wrap:ident : $raw:ty) => {
+    (@base $wrap:ident : $raw:ty) => {
         impl $crate::helpers::ComWrapper for $wrap {
             type Raw = $raw;
             unsafe fn get_raw(&self) -> *mut Self::Raw {
@@ -26,8 +26,6 @@ macro_rules! com_wrapper {
                 }
             }
         }
-        unsafe impl Send for $wrap {}
-        unsafe impl Sync for $wrap {}
         impl ::std::fmt::Debug for $wrap {
             fn fmt(&self, fmt: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
                 fmt.debug_tuple(stringify!($wrap))
@@ -35,6 +33,25 @@ macro_rules! com_wrapper {
                     .finish()
             }
         }
+    };
+    
+    ($wrap:ident: $raw:ty) => {
+        com_wrapper!($wrap : $raw, send: true, sync: true);
+    };
+    
+    ($wrap:ident: $raw:ty, send: true, sync: true) => {
+        com_wrapper!(@base $wrap : $raw);
+        unsafe impl Send for $wrap {}
+        unsafe impl Sync for $wrap {}
+    };
+
+    ($wrap:ident: $raw:ty, send: true, sync: false) => {
+        com_wrapper!(@base $wrap : $raw);
+        unsafe impl Send for $wrap {}
+    };
+
+    ($wrap:ident: $raw:ty, send: false, sync: false) => {
+        com_wrapper!(@base $wrap : $raw);
     };
 }
 
