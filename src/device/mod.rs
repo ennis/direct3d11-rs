@@ -5,7 +5,9 @@ use wio::com::ComPtr;
 
 pub mod builder;
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, ComWrapper)]
+#[com(send, sync, debug)]
+#[repr(transparent)]
 pub struct Device {
     ptr: ComPtr<ID3D11Device>,
 }
@@ -19,5 +21,3 @@ impl Device {
         unsafe { DxgiDevice::from_raw(self.ptr.cast::<IDXGIDevice>().unwrap().into_raw()) }
     }
 }
-
-com_wrapper!(Device: ID3D11Device);

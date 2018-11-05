@@ -1,7 +1,7 @@
 use device::Device;
 use device_context::DeviceContext;
+use enums::{CreateDeviceFlags, DriverType, FeatureLevel};
 use error::Error;
-use flags::{CreateDeviceFlags, DriverType, FeatureLevel};
 
 use std::ptr;
 

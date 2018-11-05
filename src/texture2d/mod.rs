@@ -12,7 +12,9 @@ use wio::com::ComPtr;
 pub mod builder;
 pub mod desc;
 
-#[derive(Clone)]
+#[derive(Clone, PartialEq, ComWrapper)]
+#[com(send, sync, debug)]
+#[repr(transparent)]
 pub struct Texture2D {
     ptr: ComPtr<ID3D11Texture2D>,
 }
@@ -27,13 +29,6 @@ impl Texture2D {
     pub fn as_dxgi(&self) -> DxgiSurface {
         unsafe { DxgiSurface::from_raw(self.ptr.cast::<IDXGISurface>().unwrap().into_raw()) }
     }
-
-    #[inline]
-    pub unsafe fn from_raw(raw: *mut ID3D11Texture2D) -> Self {
-        Self {
-            ptr: ComPtr::from_raw(raw),
-        }
-    }
 }
 
 unsafe impl BackbufferTexture for Texture2D {
@@ -45,5 +40,3 @@ unsafe impl BackbufferTexture for Texture2D {
         Texture2D::from_raw(raw as _)
     }
 }
-
-com_wrapper!(Texture2D: ID3D11Texture2D);

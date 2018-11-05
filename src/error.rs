@@ -1,9 +1,9 @@
-use helpers::ComWrapper;
-
 use std::fmt;
 
+use com_wrapper::ComWrapper;
 use dxgi::error::Error as DxgiError;
 use winapi::shared::winerror::{HRESULT, SUCCEEDED};
+use winapi::Interface;
 
 #[derive(Copy, Clone, PartialEq, Eq)]
 pub enum Error {
@@ -14,7 +14,8 @@ pub enum Error {
 impl Error {
     pub(crate) unsafe fn wrap_if<O, P>(hr: HRESULT, ptr: *mut P) -> Result<O, Error>
     where
-        O: ComWrapper<Raw = P>,
+        P: Interface,
+        O: ComWrapper<Interface = P>,
     {
         if SUCCEEDED(hr) {
             Ok(O::from_raw(ptr))

@@ -1,21 +1,19 @@
 #[doc(inline)]
-pub use flags::bind_flags::BindFlags;
+pub use enums::bind_flags::BindFlags;
 #[doc(inline)]
-pub use flags::cpu_access_flags::CpuAccessFlags;
+pub use enums::cpu_access_flags::CpuAccessFlags;
 #[doc(inline)]
-pub use flags::create_device_flags::CreateDeviceFlags;
+pub use enums::create_device_flags::CreateDeviceFlags;
 #[doc(inline)]
-pub use flags::driver_type::DriverType;
+pub use enums::driver_type::DriverType;
 #[doc(inline)]
-pub use flags::feature_level::FeatureLevel;
+pub use enums::feature_level::FeatureLevel;
 #[doc(inline)]
-pub use flags::format::Format;
+pub use enums::map::Map;
 #[doc(inline)]
-pub use flags::map::Map;
+pub use enums::resource_misc_flags::ResourceMiscFlags;
 #[doc(inline)]
-pub use flags::resource_misc_flags::ResourceMiscFlags;
-#[doc(inline)]
-pub use flags::usage::Usage;
+pub use enums::usage::Usage;
 
 #[doc(hidden)]
 pub mod bind_flags;
@@ -27,8 +25,6 @@ pub mod create_device_flags;
 pub mod driver_type;
 #[doc(hidden)]
 pub mod feature_level;
-#[doc(hidden)]
-pub mod format;
 #[doc(hidden)]
 pub mod map;
 #[doc(hidden)]

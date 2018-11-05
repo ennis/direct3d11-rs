@@ -1,7 +1,7 @@
 extern crate direct3d11;
 
 use direct3d11::device::Device;
-use direct3d11::flags::{CreateDeviceFlags, DriverType, FeatureLevel};
+use direct3d11::enums::{CreateDeviceFlags, DriverType, FeatureLevel};
 
 #[test]
 fn create_default() {

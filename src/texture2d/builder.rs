@@ -1,12 +1,12 @@
 use device::Device;
 use error::Error;
-use flags::{BindFlags, CpuAccessFlags, Format, ResourceMiscFlags, Usage};
-use helpers::ComWrapper;
+use enums::{BindFlags, CpuAccessFlags, ResourceMiscFlags, Usage};
 use texture2d::Texture2D;
 
 use std::mem;
 use std::ptr;
 
+use dxgi::Format;
 use winapi::um::d3d11::{D3D11_SUBRESOURCE_DATA, D3D11_TEXTURE2D_DESC};
 
 pub struct Texture2DBuilder<'a, 'b> {

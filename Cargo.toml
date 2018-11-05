@@ -1,6 +1,6 @@
 [package]
 name = "direct3d11"
-version = "0.1.7"
+version = "0.3.0-alpha1"
 authors = ["Connie Hilarides <conni_h@outlook.com>"]
 repository = "https://github.com/Connicpu/direct3d11-rs"
 documentation = "https://docs.rs/direct3d11/*/x86_64-pc-windows-msvc/direct3d11/"
@@ -14,10 +14,14 @@ open.
 
 [target.'cfg(windows)'.dependencies]
 wio = "0.2"
-dxgi = "0.1.7"
+dxgi = "0.3.0-alpha2"
+auto-enum = "0.1.2"
+checked-enum = "0.1.1-alpha1"
+com-wrapper = "0.1.0-alpha1"
+derive-com-wrapper = "0.1.0-alpha2"
 
 [target.'cfg(windows)'.dependencies.winapi]
-version = "0.3"
+version = "0.3.6"
 features = ["d3d11", "winerror"]
 
 [package.metadata.docs.rs]
