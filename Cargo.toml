@@ -11,14 +11,18 @@ use with direct2d, but I plan to flesh out the API eventually. If you're
 excited by this project and would like to contribute, pull requests are always
 open.
 """
+edition = "2015"
 
 [target.'cfg(windows)'.dependencies]
 wio = "0.2"
-dxgi = "0.3.0-alpha2"
-auto-enum = "0.1.2"
 checked-enum = "0.1.1-alpha1"
-com-wrapper = "0.1.0-alpha1"
-derive-com-wrapper = "0.1.0-alpha2"
+auto-enum = "0.2.0-alpha1"
+com-wrapper = "0.1.0-alpha2"
+derive-com-wrapper = "0.1.0-alpha4"
+
+[target.'cfg(windows)'.dependencies.dxgi]
+version = "0.3.0-alpha3"
+path = "../dxgi"
 
 [target.'cfg(windows)'.dependencies.winapi]
 version = "0.3.6"

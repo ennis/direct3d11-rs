@@ -1,6 +1,7 @@
 use device::Device;
 
-use dxgi::surface::Surface as DxgiSurface;
+use com_wrapper::ComWrapper;
+use dxgi::surface::Surface;
 use dxgi::swap_chain::BackbufferTexture;
 use winapi::ctypes::c_void;
 use winapi::shared::dxgi::IDXGISurface;
@@ -12,7 +13,7 @@ use wio::com::ComPtr;
 pub mod builder;
 pub mod desc;
 
-#[derive(Clone, PartialEq, ComWrapper)]
+#[derive(ComWrapper, PartialEq)]
 #[com(send, sync, debug)]
 #[repr(transparent)]
 pub struct Texture2D {
@@ -26,17 +27,9 @@ impl Texture2D {
     }
 
     #[inline]
-    pub fn as_dxgi(&self) -> DxgiSurface {
-        unsafe { DxgiSurface::from_raw(self.ptr.cast::<IDXGISurface>().unwrap().into_raw()) }
+    pub fn as_dxgi(&self) -> Surface {
+        unsafe { Surface::from_ptr(self.ptr.cast::<IDXGISurface>().unwrap()) }
     }
 }
 
-unsafe impl BackbufferTexture for Texture2D {
-    fn uuidof() -> GUID {
-        ID3D11Texture2D::uuidof()
-    }
-
-    unsafe fn from_raw(raw: *mut c_void) -> Self {
-        Texture2D::from_raw(raw as _)
-    }
-}
+impl BackbufferTexture for Texture2D {}

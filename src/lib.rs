@@ -6,12 +6,6 @@ extern crate derive_com_wrapper;
 #[macro_use]
 extern crate auto_enum;
 
-extern crate checked_enum;
-extern crate com_wrapper;
-extern crate dxgi;
-extern crate winapi;
-extern crate wio;
-
 pub use device::Device;
 pub use device_context::DeviceContext;
 pub use error::Error;
