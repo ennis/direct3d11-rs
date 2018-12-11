@@ -1,4 +1,4 @@
-#[auto_enum(u32, checked)]
+#[auto_enum::auto_enum(u32, checked)]
 /// Identifies expected resource use during rendering. The usage directly
 /// reflects whether a resource is accessible by the CPU and/or the
 /// graphics processing unit (GPU).

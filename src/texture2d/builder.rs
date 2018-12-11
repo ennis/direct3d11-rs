@@ -1,7 +1,7 @@
-use device::Device;
-use error::Error;
-use enums::{BindFlags, CpuAccessFlags, ResourceMiscFlags, Usage};
-use texture2d::Texture2D;
+use crate::device::Device;
+use crate::error::Error;
+use crate::enums::{BindFlags, CpuAccessFlags, ResourceMiscFlags, Usage};
+use crate::texture2d::Texture2D;
 
 use std::mem;
 use std::ptr;
@@ -70,7 +70,7 @@ impl<'a, 'b> Texture2DBuilder<'a, 'b> {
         self
     }
 
-    pub fn with_cpu_access_flags(mut self, cpu_access_flags: CpuAccessFlags) -> Self {
+    pub fn with_cpu_access(mut self, cpu_access_flags: CpuAccessFlags) -> Self {
         self.desc.CPUAccessFlags = cpu_access_flags.0;
         self
     }

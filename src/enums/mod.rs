@@ -1,19 +1,19 @@
 #[doc(inline)]
-pub use enums::bind_flags::BindFlags;
+pub use crate::enums::bind_flags::BindFlags;
 #[doc(inline)]
-pub use enums::cpu_access_flags::CpuAccessFlags;
+pub use crate::enums::cpu_access_flags::CpuAccessFlags;
 #[doc(inline)]
-pub use enums::create_device_flags::CreateDeviceFlags;
+pub use crate::enums::create_device_flags::CreateDeviceFlags;
 #[doc(inline)]
-pub use enums::driver_type::DriverType;
+pub use crate::enums::driver_type::DriverType;
 #[doc(inline)]
-pub use enums::feature_level::FeatureLevel;
+pub use crate::enums::feature_level::FeatureLevel;
 #[doc(inline)]
-pub use enums::map::Map;
+pub use crate::enums::map::Map;
 #[doc(inline)]
-pub use enums::resource_misc_flags::ResourceMiscFlags;
+pub use crate::enums::resource_misc_flags::ResourceMiscFlags;
 #[doc(inline)]
-pub use enums::usage::Usage;
+pub use crate::enums::usage::Usage;
 
 #[doc(hidden)]
 pub mod bind_flags;

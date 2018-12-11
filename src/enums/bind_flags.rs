@@ -1,10 +1,13 @@
-#[enum_flags(u32)]
+#[auto_enum::enum_flags(u32)]
 /// Identifies how to bind a resource to the pipeline.
 ///
 /// [More Information][1]
 ///
 /// [1]: https://msdn.microsoft.com/en-us/library/windows/desktop/ff476085(v=vs.85).aspx
 pub enum BindFlags {
+    /// No buffer bindings specified
+    NONE = 0,
+
     /// Bind a buffer as a vertex buffer to the input-assembler stage.
     VERTEX_BUFFER = 0x1,
 

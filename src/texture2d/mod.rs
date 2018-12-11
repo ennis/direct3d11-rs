@@ -1,13 +1,10 @@
-use device::Device;
+use crate::device::Device;
 
 use com_wrapper::ComWrapper;
 use dxgi::surface::Surface;
 use dxgi::swap_chain::BackbufferTexture;
-use winapi::ctypes::c_void;
 use winapi::shared::dxgi::IDXGISurface;
-use winapi::shared::guiddef::GUID;
 use winapi::um::d3d11::ID3D11Texture2D;
-use winapi::Interface;
 use wio::com::ComPtr;
 
 pub mod builder;

@@ -1,5 +1,8 @@
-#[enum_flags(u32)]
+#[auto_enum::enum_flags(u32)]
 pub enum CreateDeviceFlags {
+    /// No flags specified
+    NONE = 0,
+
     /// Use this flag if your application will only call methods of
     /// Direct3D 11 interfaces from a single thread. By default, the
     /// ID3D11Device object is thread-safe. By using this flag, you

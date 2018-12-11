@@ -2,6 +2,7 @@ use dxgi::device::Device as DxgiDevice;
 use winapi::shared::dxgi::IDXGIDevice;
 use winapi::um::d3d11::ID3D11Device;
 use wio::com::ComPtr;
+use com_wrapper::ComWrapper;
 
 pub mod builder;
 

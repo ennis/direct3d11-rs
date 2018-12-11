@@ -1,4 +1,4 @@
-#[auto_enum(u32, checked)]
+#[auto_enum::auto_enum(u32, checked)]
 /// Identifies a resource to be accessed for reading and writing by the
 /// CPU. Applications may combine one or more of these flags.
 ///

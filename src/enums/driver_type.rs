@@ -1,4 +1,4 @@
-#[auto_enum(u32, checked)]
+#[auto_enum::auto_enum(u32, checked)]
 pub enum DriverType {
     Unknown = 0,
     Hardware = 1,

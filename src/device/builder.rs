@@ -1,7 +1,7 @@
-use device::Device;
-use device_context::DeviceContext;
-use enums::{CreateDeviceFlags, DriverType, FeatureLevel};
-use error::Error;
+use crate::device::Device;
+use crate::device_context::DeviceContext;
+use crate::enums::{CreateDeviceFlags, DriverType, FeatureLevel};
+use crate::error::Error;
 
 use std::ptr;
 
@@ -9,6 +9,7 @@ use dxgi::adapter::Adapter;
 use winapi::shared::dxgi::IDXGIAdapter;
 use winapi::shared::minwindef::HMODULE;
 use winapi::um::d3d11::{D3D11CreateDevice, D3D11_SDK_VERSION};
+use com_wrapper::ComWrapper;
 
 pub struct DeviceBuilder<'a> {
     adapter: Option<&'a Adapter>,

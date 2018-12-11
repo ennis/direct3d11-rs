@@ -11,7 +11,8 @@ use with direct2d, but I plan to flesh out the API eventually. If you're
 excited by this project and would like to contribute, pull requests are always
 open.
 """
-edition = "2015"
+edition = "2018"
+workspace = ".."
 
 [target.'cfg(windows)'.dependencies]
 wio = "0.2"

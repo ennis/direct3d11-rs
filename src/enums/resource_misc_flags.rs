@@ -1,4 +1,4 @@
-#[enum_flags(u32)]
+#[auto_enum::enum_flags(u32)]
 /// Identifies options for resources.
 ///
 /// [More Information][1]

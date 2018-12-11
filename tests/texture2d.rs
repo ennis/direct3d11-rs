@@ -1,7 +1,7 @@
 extern crate direct3d11;
 extern crate dxgi;
 
-use dxgi::Format;
+use dxgi::enums::Format;
 
 use direct3d11::device::Device;
 use direct3d11::enums::CreateDeviceFlags;
