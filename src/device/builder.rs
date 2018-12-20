@@ -1,15 +1,15 @@
 use crate::device::Device;
 use crate::device_context::DeviceContext;
 use crate::enums::{CreateDeviceFlags, DriverType, FeatureLevel};
-use crate::error::Error;
 
 use std::ptr;
 
+use com_wrapper::ComWrapper;
+use dcommon::error::Error;
 use dxgi::adapter::Adapter;
 use winapi::shared::dxgi::IDXGIAdapter;
 use winapi::shared::minwindef::HMODULE;
 use winapi::um::d3d11::{D3D11CreateDevice, D3D11_SDK_VERSION};
-use com_wrapper::ComWrapper;
 
 pub struct DeviceBuilder<'a> {
     adapter: Option<&'a Adapter>,
@@ -130,8 +130,8 @@ impl<'a> DeviceBuilder<'a> {
                 &mut devctx_ptr,
             );
 
-            let dev = Error::wrap_if(hr, dev_ptr)?;
-            let ctx = Error::wrap_if(hr, devctx_ptr)?;
+            let dev = Error::map_if(hr, || Device::from_raw(dev_ptr))?;
+            let ctx = Error::map_if(hr, || DeviceContext::from_raw(devctx_ptr))?;
             let features = FeatureLevel(feature_level);
             Ok((features, dev, ctx))
         }

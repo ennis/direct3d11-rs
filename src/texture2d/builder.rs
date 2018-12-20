@@ -1,11 +1,11 @@
 use crate::device::Device;
-use crate::error::Error;
 use crate::enums::{BindFlags, CpuAccessFlags, ResourceMiscFlags, Usage};
 use crate::texture2d::Texture2D;
 
 use std::mem;
 use std::ptr;
 
+use dcommon::error::Error;
 use com_wrapper::ComWrapper;
 use dxgi::enums::Format;
 use winapi::um::d3d11::{D3D11_SUBRESOURCE_DATA, D3D11_TEXTURE2D_DESC};
@@ -117,7 +117,7 @@ impl<'a, 'b> Texture2DBuilder<'a, 'b> {
             let mut ptr = ptr::null_mut();
             let hr = (*self.device.get_raw()).CreateTexture2D(&self.desc, p_initial_data, &mut ptr);
 
-            Error::wrap_if(hr, ptr)
+            Error::map_if(hr, || Texture2D::from_raw(ptr))
         }
     }
 
