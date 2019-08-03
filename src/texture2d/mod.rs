@@ -29,4 +29,4 @@ impl Texture2D {
     }
 }
 
-impl BackbufferTexture for Texture2D {}
+unsafe impl BackbufferTexture for Texture2D {}

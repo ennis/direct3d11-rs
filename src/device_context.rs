@@ -1,3 +1,4 @@
+use com_wrapper::ComWrapper;
 use winapi::um::d3d11::ID3D11DeviceContext;
 use wio::com::ComPtr;
 

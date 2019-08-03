@@ -5,8 +5,8 @@ use crate::texture2d::Texture2D;
 use std::mem;
 use std::ptr;
 
-use dcommon::error::Error;
 use com_wrapper::ComWrapper;
+use dcommon::error::Error;
 use dxgi::enums::Format;
 use winapi::um::d3d11::{D3D11_SUBRESOURCE_DATA, D3D11_TEXTURE2D_DESC};
 
@@ -111,7 +111,8 @@ impl<'a, 'b> Texture2DBuilder<'a, 'b> {
 
         unsafe {
             let mut v_initial_data = vec![];
-            let p_initial_data = self.initial_data
+            let p_initial_data = self
+                .initial_data
                 .to_desc(&mut v_initial_data, self.desc.ArraySize);
 
             let mut ptr = ptr::null_mut();

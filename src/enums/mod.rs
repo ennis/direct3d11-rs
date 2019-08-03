@@ -31,4 +31,3 @@ pub mod map;
 pub mod resource_misc_flags;
 #[doc(hidden)]
 pub mod usage;
-
