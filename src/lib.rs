@@ -8,3 +8,5 @@ pub mod device;
 pub mod device_context;
 pub mod enums;
 pub mod texture2d;
+pub mod resource;
+pub mod device_child;
